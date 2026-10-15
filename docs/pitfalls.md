@@ -136,6 +136,55 @@ if key.lower() in place_lower or place_lower in key.lower():
 `limit=5` 时只能看到热度前 5 的摄像头，调到 20 之后同一个地点经常能拿到
 明显更好看的画面（比如东京从只有千代田 5 台，变成包含新宿区俯瞰等 20 台）。
 
+## 13. 别照格式编 ID——失败是静默的
+
+**这个坑是最贵的一个：整份 `skyline_cams.json` 的 ID 是编出来的。**
+
+当时的情况是原文件已丢失，只记得文件里长这样：
+
+```json
+"new-york": { "id": "538", "name": "...", "aliases": [...], "page_url": "..." }
+```
+
+于是照着格式给其余十几个地标编了看着合理的数字（`7016`、`3152`、`5748`……）。
+CDN 的 URL 格式 `cdn.skylinewebcams.com/social{id}.jpg` 是对的，
+所以请求不会 4xx，而是返回一个 **117 字节的 404 页面 HTML**：
+
+```html
+<!DOCTYPE html><html><head><title>404 Not Found</title></head>
+<body><h1>The page is unavailable.</h1></body></html>
+```
+
+`len(data) > 500` 的检查挡住了它，所以没把 HTML 当图片存下来——
+但结果是**静默失败**：`worldcam_look` 什么都不显示，
+而 `worldcam_list` 照样把假条目列出来，因为它只列条目、不试下载。
+
+一个数据源，两个接口说法相反，查半天才定位到是 ID 本身是假的。
+
+### 正确做法：三步验证，缺一不可
+
+```bash
+# 1. 从热榜页解析。必须按 <a> 块配对——跨块匹配会错位
+curl -s https://www.skylinewebcams.com/en/top-live-cams.html -o top.html
+#    每块里 live{id}.jpg 与 <p class="tcam">名称</p> 才是配对的
+
+# 2. 用该块的 href 抓详情页，确认页面 og:image 里的 ID 与你填的一致
+curl -sL https://www.skylinewebcams.com/en/webcam/.../xxx.html \
+  | grep -o 'og:image" content="[^"]*"'
+
+# 3. 试下载，确认拿到真 JPEG
+curl -s -o t.jpg -w '%{http_code} %{size_download}\n' \
+  https://cdn.skylinewebcams.com/social538.jpg
+```
+
+第 3 步要卡 `size > 5000`。**只判 HTTP 200 不够**——404 页面也是 200。
+
+### 一个副产品
+
+错位解析时还得出过两个假名字：`855` 被读成 "Prague"、`592` 被读成
+"Eiffel Tower"。抓详情页才发现真身是意大利的 Passo Padon 山口和
+西班牙的 Benidorm 海滩。**光看列表里相邻的图片和标题，名字会串门。**
+
 ## 检查位置过滤有没有生效
 
 不管哪个 API，只要支持经纬度过滤，都值得这么查一下：
