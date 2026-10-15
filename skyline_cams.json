@@ -1,19 +1,10 @@
 {
-  "new-york": {"id": "538", "name": "New York - Times Square", "aliases": ["new york", "nyc", "times square", "manhattan"], "page_url": "https://www.skylinewebcams.com/en/webcam/united-states/new-york/new-york/times-square.html"},
-  "empire-state-building": {"id": "6127", "name": "New York - Empire State Building", "aliases": ["empire state", "nyc"], "page_url": "https://www.skylinewebcams.com/en/webcam/united-states/new-york/new-york/empire-state-building.html"},
-  "las-vegas": {"id": "2710", "name": "Las Vegas - Strip", "aliases": ["las vegas", "vegas"], "page_url": "https://www.skylinewebcams.com/en/webcam/united-states/nevada/las-vegas/las-vegas-strip.html"},
-  "shanghai": {"id": "7016", "name": "Shanghai - The Bund", "aliases": ["shanghai", "bund", "外滩"], "page_url": "https://www.skylinewebcams.com/en/webcam/china/shanghai/shanghai/the-bund.html"},
-  "rome-trevi": {"id": "3152", "name": "Rome - Trevi Fountain", "aliases": ["rome", "trevi", "italy"], "page_url": "https://www.skylinewebcams.com/en/webcam/italy/rome/rome/trevi-fountain.html"},
-  "venice-rialto": {"id": "3277", "name": "Venice - Rialto Bridge", "aliases": ["venice", "rialto"], "page_url": "https://www.skylinewebcams.com/en/webcam/italy/venice/venice/rialto-bridge.html"},
-  "paris-eiffel": {"id": "5748", "name": "Paris - Eiffel Tower", "aliases": ["paris", "eiffel"], "page_url": "https://www.skylinewebcams.com/en/webcam/france/paris/paris/eiffel-tower.html"},
-  "sydney": {"id": "4616", "name": "Sydney - Harbour Bridge", "aliases": ["sydney", "australia"], "page_url": "https://www.skylinewebcams.com/en/webcam/australia/new-south-wales/sydney/sydney/harbour-bridge.html"},
-  "santorini": {"id": "4838", "name": "Santorini - Oia", "aliases": ["santorini", "oia", "greece"], "page_url": "https://www.skylinewebcams.com/en/webcam/greece/santorini/santorini/oia.html"},
-  "etna-volcano": {"id": "4839", "name": "Mount Etna", "aliases": ["etna", "sicily"], "page_url": "https://www.skylinewebcams.com/en/webcam/italy/sicily/catania/mount-etna.html"},
-  "jokulsarlon": {"id": "4992", "name": "Jokulsarlon Glacier Lagoon", "aliases": ["jokulsarlon", "iceland"], "page_url": "https://www.skylinewebcams.com/en/webcam/iceland/southland/jokulsarlon/jokulsarlon-glacier-lagoon.html"},
-  "lofoten": {"id": "4993", "name": "Lofoten", "aliases": ["lofoten", "norway"], "page_url": "https://www.skylinewebcams.com/en/webcam/norway/nordland/lofoten/lofoten.html"},
-  "cape-town": {"id": "5051", "name": "Cape Town - Table Mountain", "aliases": ["cape town", "table mountain"], "page_url": "https://www.skylinewebcams.com/en/webcam/south-africa/western-cape/cape-town/cape-town-table-mountain.html"},
-  "pattaya": {"id": "4113", "name": "Pattaya", "aliases": ["pattaya", "thailand"], "page_url": "https://www.skylinewebcams.com/en/webcam/thailand/chon-buri/pattaya/pattaya.html"},
-  "maldives-kuredu": {"id": "4820", "name": "Maldives - Kuredu", "aliases": ["maldives", "kuredu"], "page_url": "https://www.skylinewebcams.com/en/webcam/maldives/kaafu-atoll/kuredu/kuredu.html"},
-  "zanzibar": {"id": "5340", "name": "Zanzibar", "aliases": ["zanzibar", "tanzania"], "page_url": "https://www.skylinewebcams.com/en/webcam/tanzania/zanzibar/zanzibar/zanzibar.html"},
-  "cusco": {"id": "5455", "name": "Cusco - Plaza de Armas", "aliases": ["cusco", "peru"], "page_url": "https://www.skylinewebcams.com/en/webcam/peru/cusco/cusco/plaza-de-armas.html"}
+  "new-york-times-square": {"id": "538", "name": "New York - Times Square", "aliases": ["new york", "nyc", "times square", "manhattan"], "page_url": "https://www.skylinewebcams.com/en/webcam/united-states/new-york/new-york/times-square.html"},
+  "new-york-skyline": {"id": "790", "name": "New York City Skyline", "aliases": ["new york city", "new york skyline"], "page_url": "https://www.skylinewebcams.com/en/webcam/united-states/new-york/new-york/new-york-skyline.html"},
+  "shanghai": {"id": "5216", "name": "Skyline of Shanghai", "aliases": ["shanghai", "上海"], "page_url": "https://www.skylinewebcams.com/en/webcam/china/shanghai/shanghai/skyline-of-shanghai.html"},
+  "rome-colosseum": {"id": "1151", "name": "Rome - Colosseum", "aliases": ["rome", "colosseum", "roma"], "page_url": "https://www.skylinewebcams.com/en/webcam/italia/lazio/roma/roma-colosseo.html"},
+  "rome-trevi": {"id": "286", "name": "Trevi Fountain - Rome", "aliases": ["trevi", "trevi fountain"], "page_url": "https://www.skylinewebcams.com/en/webcam/italia/lazio/roma/fontana-di-trevi.html"},
+  "venice-rialto": {"id": "416", "name": "Venice - Rialto Bridge", "aliases": ["venice", "rialto", "venezia"], "page_url": "https://www.skylinewebcams.com/en/webcam/italia/veneto/venezia/rialto-canal-grande.html"},
+  "benidorm": {"id": "592", "name": "Benidorm - Playa de Levante", "aliases": ["benidorm"], "page_url": "https://www.skylinewebcams.com/en/webcam/espana/comunidad-valenciana/alicante/benidorm-playa-alicante.html"},
+  "passo-padon": {"id": "855", "name": "Passo Padon - Rocca Pietore", "aliases": ["passo padon", "rocca pietore"], "page_url": "https://www.skylinewebcams.com/en/webcam/italia/veneto/belluno/passo-padon.html"}
 }
