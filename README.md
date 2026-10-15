@@ -76,7 +76,7 @@ python3 worldcam.py "Tokyo" --list       # 只列摄像头，不下图
 shijie-chuang/
 ├── worldcam.py           # 主脚本（单文件，纯标准库）
 ├── config.example.json   # 配置模板（复制成 config.json 后填 key）
-├── skyline_cams.json     # SkylineWebcams 热门地点→摄像头ID映射
+├── skyline_cams.json     # SkylineWebcams 地标→摄像头ID映射（8 条，逐条验证过）
 ├── requirements.txt      # 空（零依赖）
 ├── .gitignore
 ├── mcp/
@@ -123,9 +123,21 @@ shijie-chuang/
 ## 已知限制
 
 - AISStream / OpenSky 从部分云厂商 VPS 不可达，船舶和飞机数据暂缺
-- SkylineWebcams 只覆盖 17 个热门景点；Windy 也没覆盖的地方会返回「未找到摄像头」
+- SkylineWebcams 兜底只覆盖 `skyline_cams.json` 里那 8 个地标；Windy 也没覆盖的地方会返回「未找到摄像头」
 - iNaturalist 的记录密度取决于当地有没有活跃观察员，人烟稀少处可能返回空数组
 - 摄像头覆盖不均匀：大城市密集，小地方可能一台都没有
+
+## 加新的 SkylineWebcams 地标
+
+**别凭印象填 ID**——填错了不会报错，只会让 `worldcam_list` 信誓旦旦地列出
+一个 `worldcam_look` 永远拉不到的机位。三步都做完才算数：
+
+1. **解析**：抓 `https://www.skylinewebcams.com/en/top-live-cams.html`，
+   按 `<a>` 块解析，每块里 `live{id}.jpg` 和 `<p class="tcam">名称</p>` 是配对的。
+   跨块匹配会错位。
+2. **对页**：用该块的 href 抓一次详情页，确认页面 `og:image` 里的 ID 和你要填的一致。
+3. **试下**：`curl https://cdn.skylinewebcams.com/social{id}.jpg`，
+   确认拿到 `>5KB` 的 JPEG。返回 200 但只有一百来字节的，是 404 页面。
 
 ## 踩过的坑
 
@@ -136,7 +148,7 @@ shijie-chuang/
 
 ## 扩展方向
 
-- 把 SkylineWebcams 的 ID 映射表换成全量爬取（600+ 个地点）
+- 把 SkylineWebcams 的映射表扩充到全量（600+ 个地点），按上面的三步流程逐条验证
 - 加 `--watch` 持续拉帧（间隔 60s），做延时摄影
 - 接船舶 AIS、飞机 ADS-B，实现「附近有什么在动」
 - 出图时顺带算太阳位置，标注日出日落
