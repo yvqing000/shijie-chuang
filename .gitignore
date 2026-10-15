@@ -1,0 +1,16 @@
+# 拉下来的摄像头截图，不要提交
+frames/
+frame_*.jpg
+skyline_*.jpg
+
+# 密钥
+config.json
+.env
+*.key
+.windy_key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

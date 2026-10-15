@@ -1,0 +1,4 @@
+{
+  "windy_api_key": "YOUR_WINDY_API_KEY_HERE",
+  "_note": "免费申请: https://api.windy.com/keys → 选 Webcams API。复制成 config.json 后填入真实 key。也可以不填，改用环境变量 WINDY_API_KEY。"
+}
